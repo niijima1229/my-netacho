@@ -1,0 +1,6 @@
+[submodule "my-netacho-front"]
+	path = my-netacho-front
+	url = git@github.com:niijima1229/my-netacho-front.git
+[submodule "my-netacho-api"]
+	path = my-netacho-api
+	url = git@github.com:niijima1229/my-netacho-api.git
