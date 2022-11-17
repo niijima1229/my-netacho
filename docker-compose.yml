@@ -13,3 +13,12 @@ services:
     build: ./docker/php
     volumes:
       - ./my-netacho-api:/var/www
+  front:
+    build: ./docker/next
+    working_dir: /app
+    tty: true
+    volumes:
+      - ./my-netacho-front:/app
+    command: bash -c 'yarn install && yarn dev'
+    ports:
+      - 3000:3000
