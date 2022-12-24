@@ -20,7 +20,7 @@ services:
     tty: true
     volumes:
       - ./my-netacho-front:/app
-    command: bash -c 'yarn install && yarn dev'
+    command: bash -c 'yarn install && yarn start'
     ports:
       - 3000:3000
   mysql:
