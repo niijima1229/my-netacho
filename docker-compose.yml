@@ -41,3 +41,19 @@ services:
       - ./my-netacho-api/docker/mysql/my.cnf:/etc/mysql/conf.d/my.cnf
     ports:
       - 3306:3306
+  swagger-ui:
+    image: swaggerapi/swagger-ui
+    volumes:
+      - ./my-netacho-api/docs/openapi/openapi.yml:/app/openapi.yml
+    environment:
+      SWAGGER_JSON: /app/openapi.yml
+    ports:
+      - 8080:8080
+
+  api-mock:
+    image: stoplight/prism:latest
+    ports:
+      - 4010:4010
+    command: mock -h 0.0.0.0 -d /openapi/openapi.yml
+    volumes:
+      - ./my-netacho-api/docs/openapi/:/openapi/
